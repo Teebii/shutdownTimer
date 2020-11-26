@@ -169,8 +169,8 @@ public class ShutdownTimer extends JFrame {
             case 1:
                 timeFactor = 60;
                 break;
-            case 3:
-                timeFactor = 360;
+            case 2:
+                timeFactor = 3600;
                 break;
             default:
                 timeFactor = 60;
