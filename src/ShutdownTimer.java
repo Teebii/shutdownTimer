@@ -1,5 +1,4 @@
 import javax.swing.*;
-import javax.swing.text.JTextComponent;
 import java.awt.*;
 import java.awt.event.FocusEvent;
 import java.awt.event.FocusListener;
@@ -7,7 +6,6 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
-import java.nio.charset.StandardCharsets;
 
 public class ShutdownTimer extends JFrame {
 
@@ -178,7 +176,6 @@ public class ShutdownTimer extends JFrame {
                 JScrollPane scrollPane = new JScrollPane(jTextArea);
                 scrollPane.setPreferredSize(new Dimension(500, 500));
                 JOptionPane.showMessageDialog(null, scrollPane);
-                System.out.println(stdout.toString());
             } catch (IOException | InterruptedException ex) {
                 ex.printStackTrace();
             }
@@ -256,13 +253,11 @@ public class ShutdownTimer extends JFrame {
             try {
                 final InputStreamReader isr = new InputStreamReader(is, "IBM850");
                 final BufferedReader br = new BufferedReader(isr);
-                String line = null;
+                String line;
                 while ((line = br.readLine()) != null) {
                     this.sb.append(line).append("\n");
-                    System.out.println(line);
                 }
             } catch (final IOException ioe) {
-                System.err.println(ioe.getMessage());
                 throw new RuntimeException(ioe);
             }
         }
