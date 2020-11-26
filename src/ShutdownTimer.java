@@ -149,17 +149,17 @@ public class ShutdownTimer extends JFrame {
         StringBuffer sb = new StringBuffer();
 
         if (radioShutdown.isSelected()) {
-            sb.append("/s");
+            sb.append("-s");
         } else {
-            sb.append("/r");
+            sb.append("-r");
         }
 
         if (forceShutdownCheckbox.isSelected()) {
-            sb.append(" /f");
+            sb.append(" -f");
         }
 
         if (notificationsCheckbox.isSelected()) {
-            sb.append(" /p");
+            sb.append(" -c \" \"");
         }
 
         int timeFactor = 1;
@@ -173,13 +173,10 @@ public class ShutdownTimer extends JFrame {
             case 2:
                 timeFactor = 3600;
                 break;
-            default:
-                timeFactor = 60;
-
         }
 
         int inputInSeconds = (int) minuteSpinner.getValue() * timeFactor;
-        sb.append(" /t " + inputInSeconds);
+        sb.append(" -t " + inputInSeconds);
 
         return sb.toString();
     }
