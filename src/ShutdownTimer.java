@@ -18,7 +18,8 @@ public class ShutdownTimer extends JFrame {
 
     public ShutdownTimer(String name) {
         super(name);
-        setResizable(true);
+        setResizable(false);
+        setLocation(300, 200);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     }
 
@@ -33,7 +34,7 @@ public class ShutdownTimer extends JFrame {
     private static void createAndShowGUI() {
         // Create and set up the window
         ShutdownTimer frame = new ShutdownTimer("Shutdown Timer");
-        frame.setPreferredSize(new Dimension(400, 280));
+        frame.setPreferredSize(new Dimension(400, 250));
         // Set content pane Layout
         frame.getContentPane().setLayout(new BoxLayout(frame.getContentPane(), BoxLayout.Y_AXIS));
         // Set up the content pane
